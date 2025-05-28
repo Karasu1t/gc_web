@@ -31,6 +31,12 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          env:
+            - name: ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: web-cm
+                  key: env
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler

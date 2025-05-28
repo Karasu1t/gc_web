@@ -1,3 +1,8 @@
+variable "id" {
+  type = string
+}
+
+
 variable "environment" {
   type = string
 }

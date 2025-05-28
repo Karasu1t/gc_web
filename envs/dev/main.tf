@@ -1,6 +1,7 @@
 # VPC 
 module "network" {
   source      = "../../modules/network"
+  id          = local.id
   project     = local.project
   environment = local.environment
   gcp_region  = local.gcp_region

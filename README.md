@@ -18,6 +18,11 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 - GitHub 上に以下のリポジトリを作成しておく：
 - [gc-web](https://github.com/Karasu1t/gc_web)
 - GoogleCloud アカウントを作成し、予め必要な API の有効化および terraform のための ServiceAccount を作成している
+- 本学習を進めるにあたり以下のバージョンで実施しています。
+
+1. OS Ubuntu(WSL) 5.15.167.4-microsoft-standard-WSL2
+2. Terraform v1.12.1
+3. kubectl v1.30.0
 
 ## フェーズ構成
 
@@ -36,3 +41,9 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 [Phase 2 - コンテナイメージ準備+Artifact Registry からのイメージ取得](https://github.com/Karasu1t/gc_web/blob/main/Phase2.md)  
 [Phase 3 - ArgoCD の自動デプロイ](https://github.com/Karasu1t/gc_web/blob/main/Phase3.md)  
 [Phase 4 - GithubActions での CI 環境構築](https://github.com/Karasu1t/gc_web/blob/main/Phase4.md)
+
+## 注意事項
+
+- ServiceAccount の権限については事前定義ロールを使用
+- dev フォルダ配下に locals.tf が本来あるがプロジェクト ID の記載があるため、セキュリティの兼ね合いで git 上に掲載せず
+- ServiceAccount の key についても同様
