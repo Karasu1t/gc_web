@@ -53,7 +53,7 @@ Articfact Registry へプッシュする用のイメージは src フォルダ�
 ◆app.py  
 ※MY_CONFIG_VALUE 変数は ConfigMap により上書き
 
-<pre><code>
+```
 from flask import Flask
 import os
 
@@ -83,7 +83,7 @@ def index():
 
 if **name** == '**main**':
 app.run(host='0.0.0.0', port=8080)
-</code></pre>
+```
 
 ◆Dockerfile
 
