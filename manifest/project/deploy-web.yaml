@@ -24,19 +24,22 @@ spec:
       labels:
         app: deploy-web
     spec:
+      serviceAccountName: default
       containers:
-        - image: nginx
+        - image: asia-northeast1-docker.pkg.dev/buoyant-sunbeam-461215-p9/dev-karasuit-web-repo/my-app:latest
           imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
           name: web
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           env:
-            - name: ENV
+            - name: MY_CONFIG_VALUE
               valueFrom:
                 configMapKeyRef:
                   name: web-cm
-                  key: env
+                  key: MY_CONFIG_VALUE
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
