@@ -1,5 +1,8 @@
 name: GKE CI/CD Pipeline
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
@@ -41,7 +44,7 @@ jobs:
         run: |
           docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest
 
-      - name: Update deployment.yaml with new image tag
+      - name: Update deploy-web.yaml with new image tag
         run: |
           IMAGE_URI="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest"
           sed -i "s|image: .*|image: $IMAGE_URI|" ./manifest/project/deploy-web.yaml
