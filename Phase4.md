@@ -2,14 +2,40 @@
 
 ### 概要
 
-イメージに更新があった場合に、GithubActions により自動でビルドし、ArtifactRegistry に Push する構成および、  
-上記発動後に ArgoCD にて Deployment で管理する Pod を再デプロしなおす構成を構築する
+イメージに更新があった場合に、GithubActions により自動でビルドし、ArtifactRegistry に Push する  
+また併せて deploy-web.yaml の Image の箇所を更新し、ArgoCD にて Deployment で管理する Pod を再デプロイしなおす CI/CD 環境を構築する
 
 ---
 
 ### 手順
 
-#### 1. Terraform 用の tf ファイル群を作成
+#### 1. Github の Secret 追加
+
+gc_web レポジトリ配下の Secret に以下を設定する
+
+<pre><code>
+PROJECT_ID: プロジェクト名
+REGION: asia-northeast1
+REPO_NAME: ArtifactRegistryのレポジトリ名
+IMAGE_NAME: my-app
+</code></pre>
+
+#### 1. GithubActions 用の Workflow 用ファイルを作成する
+
+<pre><code>
+.
+├── .github
+│ └── workflows
+│ └── deploy-image.yaml
+└── src
+├── Dockerfile
+└── app.py
+</code></pre>
+
+      PROJECT_ID: your-gcp-project-id
+      REGION: asia-northeast1
+      REPO_NAME: my-repo
+      IMAGE_NAME: my-app
 
 #### 2. Github に Secret/Variables の設定追加
 

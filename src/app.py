@@ -19,9 +19,28 @@ def index():
     hostname = os.uname().nodename
 
     return f"""
-    <h1>Service Account Token:</h1><pre>{sa_token[:100]}...</pre>
-    <h1>ConfigMap Value:</h1><p>{config_value}</p>
-    <h1>Hostname:</h1><p>{hostname}</p>
+    <html>
+    <head>
+    <style>
+        body {{
+        background-color: lightblue;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        }}
+        pre {{
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        }}
+    </style>
+    </head>
+    <body>
+        <h1>Service Account Token:</h1><pre>{sa_token[:100]}...</pre>
+        <h1>ConfigMap Value:</h1><p>{config_value}</p>
+        <h1>Hostname:</h1><p>{hostname}</p>
+    </body>
+    </html>
     """
     
 if __name__ == '__main__':
