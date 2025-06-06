@@ -25094,7 +25094,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v3.0.1"
 spec:
-  type: ClusterIP  
+  type: LoadBalancer  
   sessionAffinity: None
   ports:
   - name: http
