@@ -17,6 +17,9 @@ jobs:
       IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
 
     steps:
+      - name: Echo test
+        run: echo "${{ env.REGION }}"
+
       - name: Checkout code
         uses: actions/checkout@v3
 
