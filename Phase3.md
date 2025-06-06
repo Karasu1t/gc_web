@@ -32,6 +32,7 @@ Phase1,2 で構築したクラスタ環境とは別で ArgoCD をデプロイし
 │   │   ├── argocd.yaml
 │   │   └── ns.yaml
 │   └── project
+│       ├── standard-install.yaml(NEW)
 │       ├── cm.yaml
 │       ├── deploy-web.yaml
 │       ├── gateway.yaml
@@ -186,6 +187,12 @@ resource "google_project_iam_member" "node_sa_roles" {
 </code></pre>
 
 ※output.tf/variables.tf/main.tf は適宜修正
+
+Standardモードの場合デフォルトでGatewayAPIとHttpRouteのCRDがないため、マニフェストファイルを取得する  
+
+<pre><code>
+terraform apply --auto-approve
+</code></pre>
 
 以下のコマンドを実行し、GoogleCloud 環境に apply する
 
