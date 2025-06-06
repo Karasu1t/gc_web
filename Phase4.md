@@ -14,13 +14,16 @@
 gc_web レポジトリ配下の Secret に以下を設定する
 
 <pre><code>
+GCP_CREDENTIALS: keys.jsonのファイル内容
 PROJECT_ID: プロジェクト名
 REGION: asia-northeast1
 REPO_NAME: ArtifactRegistryのレポジトリ名
 IMAGE_NAME: my-app
 </code></pre>
 
-#### 1. GithubActions 用の Workflow 用ファイルを作成する
+![クラスタ画面](picture/Phase3-4-1.png)
+
+#### 2. GithubActions 用の Workflow 用ファイルを作成する
 
 <pre><code>
 .

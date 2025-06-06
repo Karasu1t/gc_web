@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-      REGION: ${{ secrets.GCP_REGION }}
-      REPO_NAME: ${{ secrets.GCP_REPO_NAME }}
-      IMAGE_NAME: ${{ secrets.GCP_IMAGE_NAME }}
+      REGION: ${{ secrets.REGION }}
+      REPO_NAME: ${{ secrets.REPO_NAME }}
+      IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
 
     steps:
       - name: Checkout code
