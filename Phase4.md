@@ -21,7 +21,7 @@ REPO_NAME: ArtifactRegistryのレポジトリ名
 IMAGE_NAME: my-app
 </code></pre>
 
-![クラスタ画面](picture/Phase3-4-1.png)
+![クラスタ画面](picture/Phase4-1-1.png)
 
 #### 2. GithubActions 用の Workflow 用ファイルを作成する
 
@@ -115,19 +115,19 @@ styele を追加(後続のテスト用)
     return f"""
     <html>
     <head>
-    <style>
-        body {{
-        background-color: blue;
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        }}
-        pre {{
-        background-color: #f0f0f0;
-        padding: 10px;
-        border-radius: 5px;
-        overflow-x: auto;
-        }}
-    </style>
+      <style>
+          body {{
+          background-color: blue;
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          }}
+          pre {{
+          background-color: #f0f0f0;
+          padding: 10px;
+          border-radius: 5px;
+          overflow-x: auto;
+          }}
+      </style>
 
     </head>
     <body>
@@ -145,3 +145,18 @@ styele を追加(後続のテスト用)
 github にプッシュする
 
 Action が正常終了していることを確認する
+
+![Workflow実行結果画面](picture/Phase4-3-1.png)
+
+Google Cloud のコンソールより、ArtifactRegistry にて日付けのタグが付与されている Image が  
+作成されていることを確認する
+
+![イメージ更新確認画面](picture/Phase4-3-2.png)
+
+ArgoCDのコンソールにて、podが再作成されていることを確認する  
+
+![ArgoCD画面](picture/Phase4-3-3.png)
+
+ブラウザにてGatewayのADDRESSに接続し、Web画面の背景が変わっていることを確認する    
+
+![Web画面](picture/Phase4-3-4.png)
