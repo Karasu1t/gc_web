@@ -26,7 +26,7 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-        - image: asia-northeast1-docker.pkg.dev/buoyant-sunbeam-461215-p9/dev-karasuit-web-repo/my-app:<DUMMY>
+        - image: asia-northeast1-docker.pkg.dev/buoyant-sunbeam-461215-p9/dev-karasuit-web-repo/my-app:20250606202920
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
