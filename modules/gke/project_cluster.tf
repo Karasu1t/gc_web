@@ -15,6 +15,10 @@ resource "google_container_cluster" "cluster" {
   deletion_protection      = false
   remove_default_node_pool = true
   initial_node_count       = 1
+
+  gateway_api_config {
+    channel = "CHANNEL_STANDARD"
+  }
 }
 
 # Node Pool (Standardモードでノードを作成)
@@ -94,6 +98,7 @@ resource "google_project_iam_member" "node_sa_roles" {
     "roles/container.nodeServiceAccount",
     "roles/logging.logWriter",
     "roles/monitoring.metricWriter",
+    "roles/artifactregistry.reader"
   ])
 
   role   = each.key

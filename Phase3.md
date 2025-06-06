@@ -100,6 +100,10 @@ resource "google_container_cluster" "cluster" {
   deletion_protection      = false
   remove_default_node_pool = true
   initial_node_count       = 1
+
+  gateway_api_config {
+    channel = "CHANNEL_STANDARD"
+  }
 }
 
 # Node Pool (Standardモードでノードを作成)
@@ -179,6 +183,7 @@ resource "google_project_iam_member" "node_sa_roles" {
     "roles/container.nodeServiceAccount",
     "roles/logging.logWriter",
     "roles/monitoring.metricWriter",
+    "roles/artifactregistry.reader"
   ])
 
   role   = each.key
@@ -188,11 +193,13 @@ resource "google_project_iam_member" "node_sa_roles" {
 
 ※output.tf/variables.tf/main.tf は適宜修正
 
-Standardモードの場合デフォルトでGatewayAPIとHttpRouteのCRDがないため、マニフェストファイルを取得する  
+Standard モードの場合デフォルトで GatewayAPI と HttpRoute の CRD がないため、マニフェストファイルを取得する
 
 <pre><code>
-terraform apply --auto-approve
+curl -LO https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
 </code></pre>
+
+※取得後、manifest/project フォルダに yaml ファイルを配置
 
 以下のコマンドを実行し、GoogleCloud 環境に apply する
 
@@ -331,4 +338,11 @@ ArgoCD コンソール画面にて、[Settings] - [Clusters]を選択し、デ�
 
 ![ArgoCD 自動デプロイ設定画面](picture/Phase3-4-1.png)
 
+ArgoCD 上で APP Health が Health であること、および Sync Status が Synced になっていることを確認する
+
+![ArgoCD ステータス画面](picture/Phase3-4-2.png)
+
 #### 5. Github 上の manifest ファイル更新をトリガーに、自動デプロイされることのテスト
+
+デプロイを AutoSync Enable にし、gateway API の ADDRESS をブラウザで入力し、  
+Web 画面が表示されることを確認する
