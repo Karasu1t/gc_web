@@ -12,7 +12,7 @@ def index():
     except Exception as e:
         sa_token = f"Error reading token: {e}"
 
-    # ConfigMapを環境変数やファイルから取得（例として環境変数）
+    # ConfigMapを環境変数やファイルから取得（例として環境変数） 
     config_value = os.getenv("MY_CONFIG_VALUE", "Config not found")
 
     # ホスト名（Pod名やNode名）も取得してみる
