@@ -23,7 +23,10 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 1. OS Ubuntu(WSL) 5.15.167.4-microsoft-standard-WSL2
 2. Terraform v1.12.1
 3. kubectl v1.30.0
-
+4. helm v3.17.3
+5. argocd v3.0.3+a14b012
+6. argocd-server v3.0.1+2bcef48
+ 
 ## フェーズ構成
 
 本環境構築は以下のフェーズに分けて進める：
