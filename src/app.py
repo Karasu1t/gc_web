@@ -23,7 +23,7 @@ def index():
     <head>
     <style>
         body {{
-        background-color: blue;
+        background-color: green;
         font-family: Arial, sans-serif;
         padding: 20px;
         }}
