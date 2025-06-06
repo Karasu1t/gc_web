@@ -44,12 +44,12 @@ jobs:
       - name: Update deployment.yaml with new image tag
         run: |
           IMAGE_URI="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:latest"
-          sed -i "s|image: .*|image: $IMAGE_URI|" ./manifests/project/deploy-web.yaml
+          sed -i "s|image: .*|image: $IMAGE_URI|" ./manifest/project/deploy-web.yaml
 
       - name: Commit and push manifest
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add ./manifests/project/deploy-web.yaml
+          git add ./manifest/project/deploy-web.yaml
           git commit -m "Update image to latest: $IMAGE_URI"
           git push
