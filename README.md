@@ -11,7 +11,7 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 
 ## アーキテクチャ図
 
-![アーキテクチャ図](picture/argocd.png)
+![アーキテクチャ図](picture/architect.png)
 
 ## 前提条件
 
