@@ -11,7 +11,7 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 
 ## アーキテクチャ図
 
-※後で挿入予定
+![アーキテクチャ図](picture/architect.png)
 
 ## 前提条件
 
@@ -26,7 +26,7 @@ GKE(Google Cloud)上にクラスタを作成し、その中でコンテナを起
 4. helm v3.17.3
 5. argocd v3.0.3+a14b012
 6. argocd-server v3.0.1+2bcef48
- 
+
 ## フェーズ構成
 
 本環境構築は以下のフェーズに分けて進める：
